@@ -1,4 +1,4 @@
-export const tricksEasy = [
+export const tricks = [
   {
     id: 1,
     name: 'Backside 180',
@@ -6,7 +6,7 @@ export const tricksEasy = [
     dice2: 'Backside',
     dice3: '180',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const tricksEasy = [
     dice2: 'Backside',
     dice3: 'Pop Shuvit',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ export const tricksEasy = [
     dice2: 'Frontside',
     dice3: '180',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ export const tricksEasy = [
     dice2: 'Frontside',
     dice3: 'Pop Shuvit',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ export const tricksEasy = [
     dice2: '',
     dice3: 'Kickflip',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ export const tricksEasy = [
     dice2: '',
     dice3: 'Heelflip',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 7,
@@ -60,7 +60,7 @@ export const tricksEasy = [
     dice2: '',
     dice3: 'Varial Kickflip',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 8,
@@ -69,7 +69,7 @@ export const tricksEasy = [
     dice2: '',
     dice3: 'Varial Heelflip',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 9,
@@ -78,7 +78,7 @@ export const tricksEasy = [
     dice2: '',
     dice3: 'Ollie',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 10,
@@ -87,7 +87,7 @@ export const tricksEasy = [
     dice2: 'Frontside',
     dice3: 'Pop Shuvit',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 11,
@@ -96,7 +96,7 @@ export const tricksEasy = [
     dice2: 'Backside',
     dice3: 'Pop Shuvit',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 12,
@@ -105,7 +105,7 @@ export const tricksEasy = [
     dice2: 'Backside',
     dice3: '180',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 13,
@@ -114,7 +114,7 @@ export const tricksEasy = [
     dice2: 'Frontside',
     dice3: '180',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 14,
@@ -123,7 +123,7 @@ export const tricksEasy = [
     dice2: '',
     dice3: 'Kickflip',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 15,
@@ -132,7 +132,7 @@ export const tricksEasy = [
     dice2: '',
     dice3: 'Heelflip',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 16,
@@ -141,7 +141,7 @@ export const tricksEasy = [
     dice2: '',
     dice3: 'Varial Kickflip',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 17,
@@ -150,7 +150,7 @@ export const tricksEasy = [
     dice2: '',
     dice3: 'Varial Heelflip',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 18,
@@ -159,7 +159,7 @@ export const tricksEasy = [
     dice2: 'Frontside',
     dice3: 'Pop Shuvit',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 19,
@@ -168,7 +168,7 @@ export const tricksEasy = [
     dice2: 'Frontside',
     dice3: '180',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 20,
@@ -177,7 +177,7 @@ export const tricksEasy = [
     dice2: 'Frontside',
     dice3: 'Big Spin',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 21,
@@ -186,7 +186,7 @@ export const tricksEasy = [
     dice2: 'Backside',
     dice3: 'Big Spin',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 22,
@@ -195,7 +195,7 @@ export const tricksEasy = [
     dice2: 'Backside',
     dice3: '180',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 23,
@@ -204,7 +204,7 @@ export const tricksEasy = [
     dice2: 'Backside',
     dice3: 'Pop Shuvit',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 24,
@@ -213,7 +213,7 @@ export const tricksEasy = [
     dice2: '',
     dice3: '',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 25,
@@ -222,7 +222,7 @@ export const tricksEasy = [
     dice2: 'Frontside',
     dice3: 'Pop Shuvit',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 26,
@@ -231,7 +231,7 @@ export const tricksEasy = [
     dice2: 'Frontside',
     dice3: '180',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 27,
@@ -240,7 +240,7 @@ export const tricksEasy = [
     dice2: 'Backside',
     dice3: 'Pop Shuvit',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
   {
     id: 28,
@@ -249,6 +249,6 @@ export const tricksEasy = [
     dice2: 'Frontside',
     dice3: '180',
     description: '',
-    category: 'easy',
+    difficulty: 'easy',
   },
 ]
