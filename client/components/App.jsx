@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { getGreeting } from '../apiClient'
+import React from 'react'
 
 import Play from './Play'
 
 const App = () => {
   return (
     <>
-      <h1>React App</h1>
       <Play />
     </>
   )
