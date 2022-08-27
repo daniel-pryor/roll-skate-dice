@@ -1,4 +1,6 @@
 export const tricks = [
+  // ****** EASY DIFFICULTY ******
+
   {
     id: 1,
     name: 'Backside 180',
@@ -250,5 +252,38 @@ export const tricks = [
     dice3: '180',
     description: '',
     difficulty: 'easy',
+  },
+
+  // ****** MEDIUM DIFFICULTY ******
+
+  {
+    id: 29,
+    name: 'Tre Flip',
+    dice1: '',
+    dice2: '',
+    dice3: 'Tre Flip',
+    description: '',
+    difficulty: 'medium',
+  },
+  {
+    id: 30,
+    name: 'Backside Flip',
+    dice1: '',
+    dice2: 'Backside',
+    dice3: 'Kicklip',
+    description: '',
+    difficulty: 'medium',
+  },
+
+  // ****** HARD DIFFICULTY ******
+
+  {
+    id: 31,
+    name: 'Ghetto Bird',
+    dice1: '',
+    dice2: '',
+    dice3: 'Ghetto Bird',
+    description: '',
+    difficulty: 'hard',
   },
 ]
