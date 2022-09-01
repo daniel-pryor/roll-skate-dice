@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Favourites = (props) => {
   const [favs, setFavs] = useState([])
@@ -18,9 +19,6 @@ const Favourites = (props) => {
   return (
     <>
       <div>
-        <input type="button" value="Favourite" onClick={addToFavs} />
-      </div>
-      <div>
         {showFavs ? (
           <input type="button" value="Hide Favourites" onClick={toggleFavs} />
         ) : (
@@ -34,6 +32,9 @@ const Favourites = (props) => {
           })}
         </div>
       ) : null}
+      <div>
+        <Link to={'/play/menu'}>Close Favourites</Link>
+      </div>
     </>
   )
 }
