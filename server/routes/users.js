@@ -18,12 +18,27 @@ router.get('/', (req, res) => {
     })
 })
 
+//GET /v1/users/id
 router.get('/:id', (req, res) => {
   const id = req.params.id
   db.getUserById(id)
     .then((user) => {
       console.log(user)
       res.json(user)
+    })
+    .catch((err) => {
+      console.error(err.message)
+      res.status(500).send('Server error')
+    })
+})
+
+//GET favourites by userid
+router.get('/:id/favourites', (req, res) => {
+  const id = req.params.id
+  db.getFavouritesByUserId(id)
+    .then((response) => {
+      console.log(response)
+      res.json(response)
     })
     .catch((err) => {
       console.error(err.message)
