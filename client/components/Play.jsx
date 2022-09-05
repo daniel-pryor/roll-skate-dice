@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Dice from './Dice'
 import Favourites from './Favourites'
+import Navigation from './Navigation'
 import { Link } from 'react-router-dom'
 
 import Menu from './Menu'
@@ -23,7 +24,7 @@ const Play = (props) => {
   }
   return (
     <>
-      <h2>Roll Dice to Play</h2>
+      <Navigation />
       <Dice
         difficulty={props.difficulty}
         trick={trick}

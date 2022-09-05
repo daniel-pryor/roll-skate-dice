@@ -14,12 +14,7 @@ const App = () => {
   }
   return (
     <>
-      <div className="main">
-        <div>
-          <Link to={'/'}>
-            <h1>Roll</h1>
-          </Link>
-        </div>
+      <div className="app">
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/play" element={<Play difficulty={difficulty} />} />
