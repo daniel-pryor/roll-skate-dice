@@ -8,6 +8,6 @@ exports.seed = async function (knex) {
   await knex('users_tricks').insert([
     { user_id: 1, trick_id: 2 },
     { user_id: 1, trick_id: 3 },
-    { user_id: 3, trick_id: 1 },
+    { user_id: 1, trick_id: 1 },
   ])
 }

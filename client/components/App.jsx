@@ -14,22 +14,27 @@ const App = () => {
   }
   return (
     <>
-      <div>
-        <Link to={'/'}>
-          <h1>Roll</h1>
-        </Link>
+      <div className="main">
+        <div>
+          <Link to={'/'}>
+            <h1>Roll</h1>
+          </Link>
+        </div>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/play" element={<Play difficulty={difficulty} />} />
+          <Route
+            path="/play/menu"
+            element={
+              <Menu
+                updateDifficulty={updateDifficulty}
+                difficulty={difficulty}
+              />
+            }
+          />
+          <Route path="/play/menu/favourites" element={<Favourites />} />
+        </Routes>
       </div>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/play" element={<Play difficulty={difficulty} />} />
-        <Route
-          path="/play/menu"
-          element={
-            <Menu updateDifficulty={updateDifficulty} difficulty={difficulty} />
-          }
-        />
-        <Route path="/play/menu/favourites" element={<Favourites />} />
-      </Routes>
     </>
   )
 }
