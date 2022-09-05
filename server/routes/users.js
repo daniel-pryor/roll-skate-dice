@@ -5,6 +5,20 @@ const db = require('../db/db')
 
 const router = express.Router()
 
+//GET favourites by userid
+router.get('/:id/favourites', (req, res) => {
+  const id = req.params.id
+  db.getFavouritesByUserId(id)
+    .then((response) => {
+      console.log(response)
+      res.json(response)
+    })
+    .catch((err) => {
+      console.error(err.message)
+      res.status(500).send('Server error')
+    })
+})
+
 //GET /v1/users
 router.get('/', (req, res) => {
   db.getUsers()
@@ -25,20 +39,6 @@ router.get('/:id', (req, res) => {
     .then((user) => {
       console.log(user)
       res.json(user)
-    })
-    .catch((err) => {
-      console.error(err.message)
-      res.status(500).send('Server error')
-    })
-})
-
-//GET favourites by userid
-router.get('/:id/favourites', (req, res) => {
-  const id = req.params.id
-  db.getFavouritesByUserId(id)
-    .then((response) => {
-      console.log(response)
-      res.json(response)
     })
     .catch((err) => {
       console.error(err.message)
