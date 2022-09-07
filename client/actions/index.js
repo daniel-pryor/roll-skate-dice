@@ -30,6 +30,7 @@ export function fetchTricks() {
     return request
       .get('/v1/tricks')
       .then((res) => {
+        console.log(res.body)
         dispatch(receiveTricks(res.body))
       })
       .catch((err) => {

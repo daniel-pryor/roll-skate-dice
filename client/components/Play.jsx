@@ -28,7 +28,7 @@ const Play = (props) => {
   return (
     <>
       <Top />
-      {/* <ErrorMessage /> */}
+      <ErrorMessage />
       <Dice
         difficulty={props.difficulty}
         trick={trick}
