@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import Dice from './Dice'
-import Favourites from './Favourites'
+import Top from './Top'
+import ErrorMessage from './ErrorMessage'
+import WaitIndicator from './WaitIndicator'
 
-import Menu from './Menu'
+import { Link } from 'react-router-dom'
 
-const Play = () => {
-  const [difficulty, setDifficulty] = useState('medium')
+const Play = (props) => {
+  const [favs, setFavs] = useState([])
   const [trick, setTrick] = useState({
     name: '',
     dice1: 'Roll',
@@ -13,19 +15,38 @@ const Play = () => {
     dice3: 'Dice',
   })
 
+  // use selector looks out for loading or error or data and display using ternary
+  //{state.loading ? <Loading/> : <ActualContent/>}
+
   function updateTrick(trick) {
     setTrick(trick)
   }
 
-  function updateDifficulty(difficulty) {
-    setDifficulty(difficulty)
+  function addToFavs(trick) {
+    setFavs([...favs, trick])
   }
   return (
     <>
-      <h2>Roll Dice to Play</h2>
-      <Dice difficulty={difficulty} trick={trick} updateTrick={updateTrick} />
-      <Menu updateDifficulty={updateDifficulty} />
-      <Favourites trick={trick} />
+      <Top />
+      {/* <ErrorMessage /> */}
+      <Dice
+        difficulty={props.difficulty}
+        trick={trick}
+        updateTrick={updateTrick}
+      />
+      {trick.name && (
+        // Post request to insert trick to favourites database
+        <div>
+          <input type="button" value="Add to Favourites" onClick={addToFavs} />
+        </div>
+      )}
+
+      <Link to={'/play/menu'}>Menu</Link>
+
+      {/* <Menu updateDifficulty={updateDifficulty} /> */}
+
+      {/* If user display favourites button */}
+      {/* <Favourites trick={trick} /> */}
     </>
   )
 }
