@@ -9,6 +9,8 @@ const App = () => {
   /// Set state for difficulty
   const [difficulty, setDifficulty] = useState('medium')
 
+  // useeffect dispatch thunk
+
   function updateDifficulty(difficulty) {
     setDifficulty(difficulty)
   }

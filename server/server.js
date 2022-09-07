@@ -1,6 +1,5 @@
 const path = require('path')
 const express = require('express')
-const cors = require('cors')
 
 const users = require('./routes/users')
 const tricks = require('./routes/tricks')
@@ -10,7 +9,6 @@ const server = express()
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, './public')))
-server.use(cors('*'))
 
 server.use('/v1/users', users)
 server.use('/v1/tricks', tricks)

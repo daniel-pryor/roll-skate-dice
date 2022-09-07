@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { tricks } from '../../data/tricks'
-import Navigation from './Navigation'
 
 // set the state of the dice
 // updates the state on the dice based on the values passed up from Trick

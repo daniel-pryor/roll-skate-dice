@@ -9,7 +9,6 @@ const router = express.Router()
 router.get('/', (req, res) => {
   db.getAllTricks()
     .then((tricks) => {
-      console.log(tricks)
       res.json(tricks)
     })
     .catch((err) => {
