@@ -7,25 +7,25 @@ exports.seed = async function (knex) {
   await knex('users').del()
   await knex('users').insert([
     {
-      id: 1,
-      name: 'Dan',
+      auth0_id: 'auth0|789',
+      username: 'dannyboy',
+      name: 'Daniel Pryor',
       location: 'Mount Maunganui',
       ability: 'easy',
-      trick_id: [2],
     },
     {
-      id: 2,
-      name: 'George',
+      auth0_id: 'auth0|456',
+      username: 'dimmy',
+      name: 'Hayden Milne',
       location: 'Christchurch',
       ability: 'hard',
-      trick_id: [16, 20],
     },
     {
-      id: 3,
-      name: 'Toby',
+      auth0_id: 'auth0|123',
+      username: 'tony',
+      name: 'Tobias Read',
       location: 'Papamoa',
       ability: 'medium',
-      trick_id: [12, 3, 25],
     },
   ])
 }

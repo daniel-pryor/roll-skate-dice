@@ -4,7 +4,7 @@
  */
 exports.up = function (knex) {
   return knex.schema.createTable('users_tricks', (table) => {
-    table.integer('user_id')
+    table.string('user_auth0_id')
     table.integer('trick_id')
   })
 }

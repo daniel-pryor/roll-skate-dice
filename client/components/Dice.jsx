@@ -1,31 +1,38 @@
 import React, { useState } from 'react'
-import { tricks } from '../../data/tricks'
+import { useSelector } from 'react-redux'
+import { getRandomTrick } from '../helper-functions'
 
 // set the state of the dice
 // updates the state on the dice based on the values passed up from Trick
 // has a function to update the state
 // function handles empty dice value by hidding dice. eg "ollie" will just render one dice. "Frontside 180" renders 2 dice, "Switch Frontside 180" renders 3 dice.
+const initialTrick = {
+  name: '',
+  dice1: 'Roll',
+  dice2: 'Skate',
+  dice3: 'Dice',
+}
 
-const Dice = (props) => {
-  function getRandomTrick(tricksArr) {
-    const currentTrick = tricksArr[Math.floor(Math.random() * tricksArr.length)]
-    return currentTrick
-  }
+const Dice = () => {
+  const allTricks = useSelector((s) => s.tricks)
+  const difficulty = useSelector((s) => s.difficulty)
+
+  const [currentTrick, setCurrentTrick] = useState(initialTrick)
 
   function handleClick() {
     let currentTricks = []
-    switch (props.difficulty) {
+    switch (difficulty) {
       case 'easy':
-        currentTricks = tricks.filter((trick) => trick.difficulty === 'easy')
+        currentTricks = allTricks.filter((trick) => trick.difficulty === 'easy')
         break
       case 'medium':
-        currentTricks = tricks.filter(
+        currentTricks = allTricks.filter(
           (trick) =>
             trick.difficulty === 'medium' || trick.difficulty === 'easy'
         )
         break
       case 'hard':
-        currentTricks = tricks.filter(
+        currentTricks = allTricks.filter(
           (trick) =>
             trick.difficulty === 'hard' ||
             trick.difficulty === 'medium' ||
@@ -34,22 +41,22 @@ const Dice = (props) => {
         break
       default:
     }
-    props.updateTrick(getRandomTrick(currentTricks))
+    return setCurrentTrick(getRandomTrick(currentTricks))
   }
 
   return (
     <>
       <div>
-        <h3>Difficulty: {props.difficulty}</h3>
+        <h3>Difficulty: {difficulty}</h3>
         <div>
           <div>
-            <p>{props.trick.dice1}</p>
+            <p>{currentTrick.dice1}</p>
           </div>
           <div>
-            <p>{props.trick.dice2}</p>
+            <p>{currentTrick.dice2}</p>
           </div>
           <div>
-            <p>{props.trick.dice3}</p>
+            <p>{currentTrick.dice3}</p>
           </div>
         </div>
         <div>
