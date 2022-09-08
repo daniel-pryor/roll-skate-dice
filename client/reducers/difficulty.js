@@ -1,6 +1,6 @@
 import { GET_DIFFICULTY, UPDATE_DIFFICULTY } from '../actions'
 
-const initialDifficulty = ['medium']
+const initialDifficulty = 'medium'
 
 function difficulty(state = initialDifficulty, action) {
   const { type, payload } = action
@@ -9,6 +9,8 @@ function difficulty(state = initialDifficulty, action) {
       return state
     case UPDATE_DIFFICULTY:
       return payload
+    default:
+      return state
   }
 }
 
