@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Home from './Home'
 import Favourites from './Favourites'
 import Menu from './Menu'
 import Play from './Play'
 
-import { fetchTricks } from '../actions'
+import { fetchTricks, getDifficulty } from '../actions'
 
 const App = () => {
   /// Set state for difficulty
@@ -17,6 +17,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchTricks())
+    dispatch(getDifficulty())
   }, [])
 
   function updateDifficulty(difficulty) {
