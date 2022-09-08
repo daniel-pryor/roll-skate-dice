@@ -9,6 +9,7 @@ const Menu = () => {
 
   return (
     <>
+      <div>Sign in</div>
       <div>
         <label htmlFor="difficulty">Difficulty</label>
         <select

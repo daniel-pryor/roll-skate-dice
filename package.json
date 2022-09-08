@@ -15,7 +15,7 @@
     "start": "node server",
     "build": "npm run webpack",
     "server": "node server",
-    "test": "jest",
+    "test": "jest --verbose --watchAll",
     "test:watch": "jest --watchAll",
     "webpack": "webpack --config ./client/webpack.config.js",
     "lint": "eslint --ext .js,.jsx ."
@@ -37,9 +37,16 @@
     ]
   },
   "dependencies": {
+    "@auth0/auth0-react": "^1.8.0",
     "sqlite3": "^5.0.8",
+    "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "express-jwt": "^6.1.0",
+    "express-jwt-authz": "^2.4.1",
+    "jwks-rsa": "^2.0.4",
     "knex": "^2.1.0",
+    "react-redux": "^7.2.5",
+    "redux": "^4.1.1",
     "pg": "^8.7.1",
     "superagent": "7.1.1"
   },
@@ -68,6 +75,7 @@
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.5",
     "react-router-dom": "^6.2.2",
+    "regenerator-runtime": "^0.13.7",
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
     "supertest": "^6.2.2",

@@ -5,7 +5,6 @@ function tricks(state = [], action) {
 
   switch (type) {
     case RECEIVE_TRICKS:
-      console.log('Returning', payload)
       return payload
     default:
       return state

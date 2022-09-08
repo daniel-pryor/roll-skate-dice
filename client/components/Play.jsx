@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Dice from './Dice'
 import Top from './Top'
 import ErrorMessage from './ErrorMessage'
@@ -10,10 +10,7 @@ import { useSelector } from 'react-redux'
 const Play = () => {
   const isloading = useSelector((s) => s.waiting)
   const allTricks = useSelector((s) => s.tricks)
-  console.log(allTricks)
-  const errorMessage = useSelector((s) => {
-    s.errorMessage
-  })
+  const errorMessage = useSelector((s) => s.errorMessage)
   // use selector looks out for loading or error or data and display using ternary
   //{state.loading ? <Loading/> : <ActualContent/>}
 
