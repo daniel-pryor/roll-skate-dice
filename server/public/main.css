@@ -12,6 +12,7 @@ body {
     background-image: url('./images/grip.png');
     background-repeat: no-repeat;
     background-size: cover;
+    color: white;
 }
 
 .app {

@@ -1,4 +1,4 @@
-export function getRandomTrick(tricksArr) {
-  const currentTrick = tricksArr[Math.floor(Math.random() * tricksArr.length)]
+export function getRandomTrick(array) {
+  const currentTrick = array[Math.floor(Math.random() * array.length)]
   return currentTrick
 }
