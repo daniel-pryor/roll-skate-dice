@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { updateDifficulty } from '../actions'
 
-const Menu = (props) => {
-  function handleDifficultyChange(e) {
-    const difficulty = e.target.value
-    props.updateDifficulty(difficulty)
-  }
+const Menu = () => {
+  const dispatch = useDispatch()
+  const difficulty = useSelector((s) => s.difficulty)
 
   return (
     <>
@@ -14,8 +14,8 @@ const Menu = (props) => {
         <select
           name="difficulty"
           id="difficulty"
-          onChange={handleDifficultyChange}
-          defaultValue={props.difficulty}
+          onChange={(e) => dispatch(updateDifficulty(e.target.value))}
+          defaultValue={difficulty}
         >
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
