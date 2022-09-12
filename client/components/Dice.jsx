@@ -50,13 +50,13 @@ const Dice = () => {
         <h3>Difficulty: {difficulty}</h3>
         <div>
           <div>
-            <p>{currentTrick.dice1}</p>
+            <p>Dice 1:{currentTrick.dice1}</p>
           </div>
           <div>
-            <p>{currentTrick.dice2}</p>
+            <p>Dice 2:{currentTrick.dice2}</p>
           </div>
           <div>
-            <p>{currentTrick.dice3}</p>
+            <p>Dice 3:{currentTrick.dice3}</p>
           </div>
         </div>
         <div>

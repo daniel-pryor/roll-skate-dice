@@ -1,12 +1,55 @@
 const express = require('express')
 
 // eslint-disable-next-line no-unused-vars
-const db = require('../db/db')
+const checkJwt = require('../auth0')
 
+const db = require('../db/users')
 const router = express.Router()
 
+//GET /v1/users
+router.get('/', checkJwt, (req, res) => {
+  const auth0_id = req.user?.sub
+
+  if (!auth0_id) {
+    res.send(null)
+  } else {
+    db.getUser(auth0_id)
+      .then((user) => {
+        res.json(user ? user : null)
+      })
+      .catch((err) => res.status(500).send(err.message))
+  }
+})
+
+router.post('/', checkJwt, (req, res) => {
+  const auth0_id = req.user?.sub
+  const { username, name, location, ability } = req.body
+  const userDetails = {
+    auth0_id,
+    username,
+    name,
+    location,
+    ability,
+  }
+
+  db.userExists(username)
+    .then((usernameTaken) => {
+      if (usernameTaken) throw new Error('Username Taken')
+    })
+    .then(() => db.createUser(userDetails))
+    .then(() => res.sendStatus(201))
+    .catch((err) => {
+      console.error(err)
+      if (err.message === 'Username Taken') {
+        res.status(403).send('Username Taken')
+      } else {
+        res.status(500).send(err.message)
+      }
+    })
+})
+
 //GET favourites by userid
-router.get('/:id/favourites', (req, res) => {
+router.get('/:id/favourites', checkJwt, (req, res) => {
   const id = req.params.id
   db.getFavouritesByUserId(id)
     .then((response) => {
@@ -18,20 +61,6 @@ router.get('/:id/favourites', (req, res) => {
       res.status(500).send('Server error')
     })
 })
-
-//GET /v1/users
-router.get('/', (req, res) => {
-  db.getUsers()
-    .then((users) => {
-      console.log(users)
-      res.json(users)
-    })
-    .catch((err) => {
-      console.error(err.message)
-      res.status(500).send('Server error')
-    })
-})
-
 //GET /v1/users/id
 router.get('/:id', (req, res) => {
   const id = req.params.id

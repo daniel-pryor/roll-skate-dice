@@ -1,6 +1,6 @@
-const config = require('./knexfile').development
+// const config = require('./knexfile').development
 // eslint-disable-next-line no-unused-vars
-const connection = require('knex')(config)
+const connection = require('./connection')
 
 module.exports = { getUsers, getUserById, getFavouritesByUserId, getAllTricks }
 
