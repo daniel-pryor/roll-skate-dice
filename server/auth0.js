@@ -2,8 +2,8 @@ const jwt = require('express-jwt')
 const jwks = require('jwks-rsa')
 
 // TODO: set the domain and audience (API Identifier)
-const domain = ''
-const audience = ''
+const domain = 'https://roll-skate-dice.au.auth0.com'
+const audience = 'https://roll/api'
 
 const checkJwt = jwt({
   secret: jwks.expressJwtSecret({

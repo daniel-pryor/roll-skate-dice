@@ -10,8 +10,8 @@ const server = express()
 server.use(express.json())
 server.use(express.static(path.join(__dirname, './public')))
 
-server.use('/v1/users', users)
-server.use('/v1/tricks', tricks)
+server.use('/api/v1/users', users)
+server.use('/api/v1/tricks', tricks)
 // server.use('/v1/favourites', favourites)
 server.use('/v1/*', (req, res) => res.sendStatus(404))
 

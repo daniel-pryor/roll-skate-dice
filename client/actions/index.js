@@ -35,7 +35,7 @@ export function fetchTricks() {
   return (dispatch) => {
     dispatch(requestTricks())
     return request
-      .get('/v1/tricks')
+      .get('/api/v1/tricks')
       .then((res) => {
         dispatch(receiveTricks(res.body))
       })

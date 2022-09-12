@@ -3,20 +3,23 @@ import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateDifficulty } from '../actions'
 
+import Login from './Login'
+
 const Menu = () => {
   const dispatch = useDispatch()
   const difficulty = useSelector((s) => s.difficulty)
+  const user = useSelector((s) => s.loggedInUser)
 
   return (
     <>
-      <div>Sign in</div>
+      <Login />
       <div>
         <label htmlFor="difficulty">Difficulty</label>
         <select
           name="difficulty"
           id="difficulty"
           onChange={(e) => dispatch(updateDifficulty(e.target.value))}
-          defaultValue={difficulty}
+          defaultValue={user ? user.ability : 'medium'}
         >
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
