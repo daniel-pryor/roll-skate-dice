@@ -11,12 +11,15 @@ const Play = () => {
   const isloading = useSelector((s) => s.waiting)
   const allTricks = useSelector((s) => s.tricks)
   const errorMessage = useSelector((s) => s.errorMessage)
+  const user = useSelector((s) => s.loggedInUser)
+  console.log(user)
   // use selector looks out for loading or error or data and display using ternary
   //{state.loading ? <Loading/> : <ActualContent/>}
 
   return (
     <>
       <div>
+        <p>{user.username}</p>
         <Top />
         {isloading ? <WaitIndicator /> : null}
         {errorMessage ? <ErrorMessage /> : null}

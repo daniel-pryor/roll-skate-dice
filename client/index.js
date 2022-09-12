@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
      * TODO: replace the empty strings below with your own domain, clientId, and audience
      */
     <Auth0Provider
-      domain=""
-      clientId=""
-      redirectUri={window.location.origin}
-      audience=""
+      domain="roll-skate-dice.au.auth0.com"
+      clientId="0P5eRk5MddBrV0jWMxSkKMIHiWuAkgnX"
+      redirectUri="http://localhost:3000/register"
+      audience="https://roll/api"
     >
       <Provider store={store}>
         <Router>
