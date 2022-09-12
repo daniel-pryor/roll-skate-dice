@@ -7,7 +7,7 @@ import Login from './Login'
 
 const Menu = () => {
   const dispatch = useDispatch()
-  const difficulty = useSelector((s) => s.difficulty)
+  // const difficulty = useSelector((s) => s.difficulty)
   const user = useSelector((s) => s.loggedInUser)
 
   return (
