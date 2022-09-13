@@ -51,6 +51,15 @@ export function addUser(user, token) {
     .catch(logError)
 }
 
+export function updateUser(user, token) {
+  console.log('api.js:', user, token)
+  return request
+    .put(`${rootUrl}/users`)
+    .set('Authorization', `Bearer ${token}`)
+    .send(user)
+    .catch(logError)
+}
+
 function logError(err) {
   if (err.response.text === 'Username Taken') {
     throw new Error('Username already taken - please choose another')

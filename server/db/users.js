@@ -4,6 +4,7 @@ module.exports = {
   userExists,
   getUser,
   createUser,
+  updateUser,
 }
 
 function userExists(username, db = connection) {
@@ -18,4 +19,9 @@ function getUser(id, db = connection) {
 
 function createUser(user, db = connection) {
   return db('users').insert(user)
+}
+
+function updateUser(auth0_id, user, db = connection) {
+  console.log(user)
+  return db('users').update(user).where('auth0_id', auth0_id)
 }

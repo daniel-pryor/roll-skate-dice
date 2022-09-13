@@ -27,6 +27,10 @@ const Menu = () => {
         </select>
       </div>
       <div>
+        <Link to={'/play/profile'}>Profile</Link>
+      </div>
+
+      <div>
         <Link to={'/play/menu/favourites'}>Favourites</Link>
       </div>
       <div>
