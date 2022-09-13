@@ -6,6 +6,8 @@ import Home from './Home'
 import Favourites from './Favourites'
 import Menu from './Menu'
 import Play from './Play'
+import Profile from './Profile'
+import EditProfile from './EditProfile'
 import Register from './Register'
 
 import { fetchTricks, getDifficulty } from '../actions'
@@ -47,6 +49,8 @@ const App = () => {
           <Route path="/play" element={<Play />} />
           <Route path="/play/menu" element={<Menu />} />
           <Route path="/play/menu/favourites" element={<Favourites />} />
+          <Route path="/play/profile" element={<Profile />} />
+          <Route path="/play/profile/edit" element={<EditProfile />} />
           <Route path="register" element={<Register />} />
         </Routes>
       </div>

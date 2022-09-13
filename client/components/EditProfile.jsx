@@ -1,46 +1,45 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import { addUser } from '../api'
+import { updateUser } from '../api'
 import { updateLoggedInUser } from '../actions/loggedInUser'
 
 import { Error } from './Styled'
 
-export default function Register() {
+export default function EditProfile() {
   const user = useSelector((s) => s.loggedInUser)
-  const navigate = useNavigate()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const [form, setForm] = useState({
-    username: '',
-    name: '',
-    location: '',
-    ability: '',
+    username: user.username,
+    name: user.name,
+    location: user.location,
+    ability: user.ability,
   })
   const [errorMsg, setErrorMsg] = useState('')
 
-  useEffect(() => {
-    if (user.username) navigate('/play')
-  }, [user])
-
-  const handleChange = (e) => {
+  function handleEditChange(e) {
+    const { name, value } = e.target
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [name]: value,
     })
   }
 
-  const handleSubmit = (e) => {
+  function handleUpdate(e) {
     e.preventDefault()
     const userInfo = {
       auth0Id: user.auth0Id,
       ...form,
     }
-    addUser(userInfo, user.token)
+    /// pass auth0_id
+    updateUser(userInfo, user.token)
       .then(() => dispatch(updateLoggedInUser(userInfo)))
       .catch((err) => setErrorMsg(err.message))
 
-    navigate('/play')
+    navigate('/play/profile')
   }
 
   const hideError = () => {
@@ -49,16 +48,16 @@ export default function Register() {
 
   return (
     <>
-      <h2>Complete profile setup</h2>
+      <h2>Update profile info</h2>
       {errorMsg && <Error onClick={hideError}>Error:: {errorMsg}</Error>}
-      <form action="" onSubmit={handleSubmit}>
+      <form action="" onSubmit={handleUpdate}>
         <label htmlFor="username">Username: </label>
         <input
           type="text"
           id="username"
           name="username"
           value={form.username}
-          onChange={handleChange}
+          onChange={handleEditChange}
         />
         <label htmlFor="name">Name: </label>
         <input
@@ -66,7 +65,7 @@ export default function Register() {
           id="name"
           name="name"
           value={form.name}
-          onChange={handleChange}
+          onChange={handleEditChange}
         />
         <label htmlFor="location">Location: </label>
         <input
@@ -74,7 +73,7 @@ export default function Register() {
           id="location"
           name="location"
           value={form.location}
-          onChange={handleChange}
+          onChange={handleEditChange}
         />
         <label htmlFor="ability">Ability: </label>
         <select
@@ -82,7 +81,7 @@ export default function Register() {
           id="ability"
           // defaultValue="medium"
           value={form.ability}
-          onChange={handleChange}
+          onChange={handleEditChange}
         >
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
@@ -93,7 +92,7 @@ export default function Register() {
             !(form.username && form.name && form.location && form.ability)
           }
         >
-          Save Profile
+          Save
         </button>
       </form>
     </>
