@@ -1,13 +1,13 @@
 const express = require('express')
 
 // eslint-disable-next-line no-unused-vars
-const db = require('../db/db')
+const { getAllTricks, getFavouritesByUserId } = require('../db/tricks')
 
 const router = express.Router()
 
 //GET /v1/tricks
 router.get('/', (req, res) => {
-  db.getAllTricks()
+  getAllTricks()
     .then((tricks) => {
       res.json(tricks)
     })

@@ -5,6 +5,11 @@ module.exports = {
   getUser,
   createUser,
   updateUser,
+  getAllUsers,
+}
+
+function getAllUsers(db = connection) {
+  return db('users').select()
 }
 
 function userExists(username, db = connection) {

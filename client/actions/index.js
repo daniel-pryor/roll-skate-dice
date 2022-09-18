@@ -1,5 +1,4 @@
 import request from 'superagent'
-import difficulty from '../reducers/difficulty'
 
 export const SHOW_ERROR = 'SHOW_ERROR'
 export const RECEIVE_TRICKS = 'RECEIVE_TRICKS'
