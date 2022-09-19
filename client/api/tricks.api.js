@@ -3,12 +3,7 @@ import request from 'superagent'
 const rootUrl = '/api/v1'
 
 export function getTricks() {
-  return request
-    .get(`${rootUrl}/tricks`)
-    .then((res) => {
-      return res.body
-    })
-    .catch((err) => {
-      console.error(err.message)
-    })
+  return request.get(`${rootUrl}/tricks`).then((res) => {
+    return res.body
+  })
 }
