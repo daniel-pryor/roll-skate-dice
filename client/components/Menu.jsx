@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { updateDifficulty } from '../actions'
+import { updateDifficulty } from '../actions/difficulty'
 
 import Login from './Login'
 

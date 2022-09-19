@@ -1,9 +1,9 @@
 const request = require('supertest')
-const server = require('../server')
+const server = require('../../server')
 
-const { getAllTricks } = require('../db/tricks')
+const { getAllTricks } = require('../../db/tricks')
 
-jest.mock('../db/tricks')
+jest.mock('../../db/tricks')
 
 jest.spyOn(console, 'error')
 

@@ -10,10 +10,11 @@ import Profile from './Profile'
 import EditProfile from './EditProfile'
 import Register from './Register'
 
-import { fetchTricks, getDifficulty } from '../actions'
+import { fetchTricks } from '../actions/tricks'
+import { getDifficulty } from '../actions/difficulty'
 import { clearLoggedInUser, updateLoggedInUser } from '../actions/loggedInUser'
 import { useCacheUser } from '../auth0-utils'
-import { getUser } from '../api'
+import { getUser } from '../api/user.api'
 import { useAuth0 } from '@auth0/auth0-react'
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
       getAccessTokenSilently()
         .then((token) => getUser(token))
         .then((userInDb) => {
+          console.log('userInDb', userInDb)
           userInDb
             ? dispatch(updateLoggedInUser(userInDb))
             : navigate('/register')

@@ -1,4 +1,4 @@
-import { GET_DIFFICULTY, UPDATE_DIFFICULTY } from '../actions'
+import { GET_DIFFICULTY, UPDATE_DIFFICULTY } from '../actions/difficulty'
 
 const initialDifficulty = 'medium'
 

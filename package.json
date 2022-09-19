@@ -15,7 +15,7 @@
     "start": "node server",
     "build": "npm run webpack",
     "server": "node server",
-    "test": "jest --verbose --watchAll",
+    "test": "jest",
     "test:watch": "jest --watchAll",
     "webpack": "webpack --config ./client/webpack.config.js",
     "lint": "eslint --ext .js,.jsx ."

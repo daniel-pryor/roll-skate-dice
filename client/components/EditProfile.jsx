@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import { updateUser } from '../api'
+import { updateUser } from '../api/user.api'
 import { updateLoggedInUser } from '../actions/loggedInUser'
 
 import { Error } from './Styled'

@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import { addUser } from '../api'
+import { addUser } from '../api/user.api'
 import { updateLoggedInUser } from '../actions/loggedInUser'
 
 import { Error } from './Styled'
 
 export default function Register() {
   const user = useSelector((s) => s.loggedInUser)
+  console.log('state:', user)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [form, setForm] = useState({

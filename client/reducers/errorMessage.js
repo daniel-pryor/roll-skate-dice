@@ -1,4 +1,4 @@
-import { SHOW_ERROR } from '../actions'
+import { SHOW_ERROR } from '../actions/tricks'
 
 function errorMessage(state = '', action) {
   const { type, payload } = action

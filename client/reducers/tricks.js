@@ -1,4 +1,4 @@
-import { RECEIVE_TRICKS } from '../actions'
+import { RECEIVE_TRICKS } from '../actions/tricks'
 
 function tricks(state = [], action) {
   const { type, payload } = action

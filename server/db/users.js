@@ -26,7 +26,6 @@ function createUser(user, db = connection) {
   return db('users').insert(user)
 }
 
-function updateUser(auth0_id, user, db = connection) {
-  console.log(user)
-  return db('users').update(user).where('auth0_id', auth0_id)
+function updateUser(id, newData, db = connection) {
+  return db('users').update(newData).where('auth0_id', id)
 }

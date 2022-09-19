@@ -1,4 +1,4 @@
-import { SHOW_ERROR, REQUEST_TRICKS, RECEIVE_TRICKS } from '../actions'
+import { SHOW_ERROR, REQUEST_TRICKS, RECEIVE_TRICKS } from '../actions/tricks'
 
 function waiting(state = false, action) {
   const { type } = action

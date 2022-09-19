@@ -1,13 +1,11 @@
 const express = require('express')
-
-// eslint-disable-next-line no-unused-vars
 const checkJwt = require('../auth0')
 
 const db = require('../db/users')
 const router = express.Router()
 
 //GET /v1/users
-router.get('/', checkJwt, (req, res) => {
+router.get('/singleuser', checkJwt, (req, res) => {
   const auth0_id = req.user?.sub
 
   if (!auth0_id) {
@@ -17,11 +15,23 @@ router.get('/', checkJwt, (req, res) => {
       .then((user) => {
         res.json(user ? user : null)
       })
-      .catch((err) => res.status(500).send(err.message))
+      .catch((err) => {
+        console.error(err.message)
+        res.status(500).send(err.message)
+      })
   }
 })
 
-router.post('/', checkJwt, (req, res) => {
+router.get('/', (req, res) => {
+  db.getAllUsers()
+    .then((users) => res.json({ users }))
+    .catch((err) => {
+      console.error(err.message)
+      res.status(500).send(err.message)
+    })
+})
+
+router.post('/singleuser', checkJwt, (req, res) => {
   const auth0_id = req.user?.sub
   const { username, name, location, ability } = req.body
   const userDetails = {
@@ -48,7 +58,7 @@ router.post('/', checkJwt, (req, res) => {
     })
 })
 
-router.put('/', checkJwt, (req, res) => {
+router.put('/singleuser', checkJwt, (req, res) => {
   console.log(req.body)
   const auth0_id = req.user?.sub
   const { username, name, location, ability } = req.body

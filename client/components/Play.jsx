@@ -1,11 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
 import Dice from './Dice'
 import Top from './Top'
 import ErrorMessage from './ErrorMessage'
 import WaitIndicator from './WaitIndicator'
-
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 
 const Play = () => {
   const isloading = useSelector((s) => s.waiting)
