@@ -7,6 +7,7 @@ export default function Profile() {
 
   return (
     <>
+      <Link to={'/play/menu'}>Back</Link>
       <div>Username: {user.username}</div>
       <div>Name: {user.name}</div>
       <div>Location: {user.location}</div>

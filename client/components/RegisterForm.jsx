@@ -1,47 +1,47 @@
-import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate, Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
-import { updateUser } from '../api/user.api'
+import { addUser } from '../api/user.api'
 import { updateLoggedInUser } from '../actions/loggedInUser'
 
 import { Error } from './Styled'
 
-export default function EditProfile() {
+export default function RegisterForm() {
   const user = useSelector((s) => s.loggedInUser)
-  const dispatch = useDispatch()
+  console.log('state:', user)
   const navigate = useNavigate()
-
+  const dispatch = useDispatch()
   const [form, setForm] = useState({
-    username: user.username,
-    name: user.name,
-    location: user.location,
-    ability: user.ability,
+    username: '',
+    name: '',
+    location: '',
+    ability: '',
   })
   const [errorMsg, setErrorMsg] = useState('')
 
-  function handleEditChange(e) {
-    const { name, value } = e.target
+  useEffect(() => {
+    if (user.username) navigate('/play')
+  }, [user])
+
+  const handleChange = (e) => {
     setForm({
       ...form,
-      [name]: value,
+      [e.target.name]: e.target.value,
     })
   }
 
-  function handleUpdate(e) {
+  const handleSubmit = (e) => {
     e.preventDefault()
     const userInfo = {
       auth0Id: user.auth0Id,
       ...form,
     }
-
-    /// pass auth0_id
-    console.log(user.username)
-    updateUser(user.username, userInfo, user.token)
+    addUser(userInfo, user.token)
       .then(() => dispatch(updateLoggedInUser(userInfo)))
       .catch((err) => setErrorMsg(err.message))
 
-    navigate('/play/profile')
+    navigate('/play')
   }
 
   const hideError = () => {
@@ -50,16 +50,16 @@ export default function EditProfile() {
 
   return (
     <>
-      <h2>Update profile info</h2>
+      <h2>Complete profile setup</h2>
       {errorMsg && <Error onClick={hideError}>Error:: {errorMsg}</Error>}
-      <form action="" onSubmit={handleUpdate}>
+      <form action="" onSubmit={handleSubmit}>
         <label htmlFor="username">Username: </label>
         <input
           type="text"
           id="username"
           name="username"
           value={form.username}
-          onChange={handleEditChange}
+          onChange={handleChange}
         />
         <label htmlFor="name">Name: </label>
         <input
@@ -67,7 +67,7 @@ export default function EditProfile() {
           id="name"
           name="name"
           value={form.name}
-          onChange={handleEditChange}
+          onChange={handleChange}
         />
         <label htmlFor="location">Location: </label>
         <input
@@ -75,7 +75,7 @@ export default function EditProfile() {
           id="location"
           name="location"
           value={form.location}
-          onChange={handleEditChange}
+          onChange={handleChange}
         />
         <label htmlFor="ability">Ability: </label>
         <select
@@ -83,7 +83,7 @@ export default function EditProfile() {
           id="ability"
           // defaultValue="medium"
           value={form.ability}
-          onChange={handleEditChange}
+          onChange={handleChange}
         >
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
@@ -94,9 +94,8 @@ export default function EditProfile() {
             !(form.username && form.name && form.location && form.ability)
           }
         >
-          Save
+          Save Profile
         </button>
-        <Link to={'/play/profile'}>Cancel</Link>
       </form>
     </>
   )
