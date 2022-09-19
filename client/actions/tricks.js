@@ -22,7 +22,7 @@ export function receiveTricks(tricks) {
 export function showError(errorMessage) {
   return {
     type: SHOW_ERROR,
-    payload: errorMessage,
+    errorMessage,
   }
 }
 
@@ -30,9 +30,8 @@ export function fetchTricks() {
   return (dispatch) => {
     dispatch(requestTricks())
     return getTricks()
-      .then((res) => {
-        console.log(res)
-        dispatch(receiveTricks(res.body))
+      .then((tricks) => {
+        dispatch(receiveTricks(tricks))
       })
       .catch((err) => {
         dispatch(showError(err.message))

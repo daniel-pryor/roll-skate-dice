@@ -6,7 +6,7 @@ export function getTricks() {
   return request
     .get(`${rootUrl}/tricks`)
     .then((res) => {
-      return res
+      return res.body
     })
     .catch((err) => {
       console.error(err.message)
