@@ -16,7 +16,9 @@ function userExists(currentUsername, username, db = connection) {
   return db('users')
     .where('username', username)
     .then((usersFound) => {
-      if (currentUsername !== username && usersFound.length > 0) {
+      if (currentUsername == '' && usersFound.length > 0) {
+        return true
+      } else if (currentUsername !== username && usersFound.length > 0) {
         return true
       } else return false
     })

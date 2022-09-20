@@ -34,6 +34,7 @@ router.get('/', (req, res) => {
 router.post('/singleuser', checkJwt, (req, res) => {
   const auth0_id = req.user?.sub
   const { username, name, location, ability } = req.body
+  const currentUsername = ''
   const userDetails = {
     auth0_id,
     username,
@@ -42,7 +43,7 @@ router.post('/singleuser', checkJwt, (req, res) => {
     ability,
   }
 
-  db.userExists(username)
+  db.userExists(currentUsername, username)
     .then((usernameTaken) => {
       if (usernameTaken) throw new Error('Username Taken')
     })
