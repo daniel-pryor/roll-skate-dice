@@ -7,8 +7,12 @@ import Login from './Login'
 
 const Menu = () => {
   const dispatch = useDispatch()
-  // const difficulty = useSelector((s) => s.difficulty)
-  const user = useSelector((s) => s.loggedInUser)
+  const difficulty = useSelector((s) => s.difficulty)
+  // const user = useSelector((s) => s.loggedInUser)
+  // const [currentDifficulty, setCurrentDifficulty] = useState(difficulty)
+  // useEffect(() => {
+  //   setCurrentDifficulty(user ? user.ability : difficulty)
+  // }, [difficulty])
 
   return (
     <>
@@ -19,7 +23,7 @@ const Menu = () => {
           name="difficulty"
           id="difficulty"
           onChange={(e) => dispatch(updateDifficulty(e.target.value))}
-          defaultValue={user ? user.ability : 'medium'}
+          defaultValue={difficulty}
         >
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
