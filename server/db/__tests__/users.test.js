@@ -34,13 +34,21 @@ describe('test getUser', () => {
 describe('test userExists', () => {
   it('returns true if username already exists', () => {
     const username = 'dannyboy'
-    return userExists(username, testCon).then((res) => {
+    const currentUsername = 'dannyboy2'
+
+    return userExists(currentUsername, username, testCon).then((res) => {
       expect(res).toBe(true)
     })
   })
   it('returns false if username does not exist', () => {
     const username = 'little test boy'
-    return userExists(username, testCon).then((res) => {
+    return userExists(username, username, testCon).then((res) => {
+      expect(res).toBe(false)
+    })
+  })
+  it('returns false if username not changed on update', () => {
+    const username = 'little test boy'
+    return userExists(username, username, testCon).then((res) => {
       expect(res).toBe(false)
     })
   })

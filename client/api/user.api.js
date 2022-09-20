@@ -21,12 +21,12 @@ export function addUser(user, token) {
     .catch(logError)
 }
 
-export function updateUser(user, token) {
-  console.log('api.js:', user, token)
+export function updateUser(currentUsername, user, token) {
+  console.log(currentUsername)
   return request
     .put(`${rootUrl}/users/singleuser`)
     .set('Authorization', `Bearer ${token}`)
-    .send(user)
+    .send({ currentUsername, user })
     .catch(logError)
 }
 
