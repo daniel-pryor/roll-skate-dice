@@ -38,10 +38,11 @@ export default function EditProfile() {
     /// pass auth0_id
     console.log(user.username)
     updateUser(user.username, userInfo, user.token)
-      .then(() => dispatch(updateLoggedInUser(userInfo)))
+      .then(() => {
+        navigate('/play/profile')
+        dispatch(updateLoggedInUser(userInfo))
+      })
       .catch((err) => setErrorMsg(err.message))
-
-    navigate('/play/profile')
   }
 
   const hideError = () => {
@@ -81,19 +82,15 @@ export default function EditProfile() {
         <select
           name="ability"
           id="ability"
-          // defaultValue="medium"
           value={form.ability}
           onChange={handleEditChange}
         >
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+          <option value="Pro">Pro</option>
         </select>
-        <button
-          disabled={
-            !(form.username && form.name && form.location && form.ability)
-          }
-        >
+        <button disabled={!(form.username && form.name && form.ability)}>
           Save
         </button>
         <Link to={'/play/profile'}>Cancel</Link>

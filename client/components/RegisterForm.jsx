@@ -38,10 +38,11 @@ export default function RegisterForm() {
       ...form,
     }
     addUser(userInfo, user.token)
-      .then(() => dispatch(updateLoggedInUser(userInfo)))
+      .then(() => {
+        navigate('/play')
+        dispatch(updateLoggedInUser(userInfo))
+      })
       .catch((err) => setErrorMsg(err.message))
-
-    navigate('/play')
   }
 
   const hideError = () => {
@@ -81,19 +82,15 @@ export default function RegisterForm() {
         <select
           name="ability"
           id="ability"
-          // defaultValue="medium"
           value={form.ability}
           onChange={handleChange}
         >
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+          <option value="Pro">Pro</option>
         </select>
-        <button
-          disabled={
-            !(form.username && form.name && form.location && form.ability)
-          }
-        >
+        <button disabled={!(form.username && form.name && form.ability)}>
           Save Profile
         </button>
       </form>

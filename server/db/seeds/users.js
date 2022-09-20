@@ -7,6 +7,7 @@ exports.seed = async function (knex) {
   await knex('users').del()
   await knex('users').insert([
     {
+      id: 1,
       auth0_id: 'auth0|789',
       username: 'dannyboy',
       name: 'Daniel Pryor',
@@ -14,6 +15,7 @@ exports.seed = async function (knex) {
       ability: 'easy',
     },
     {
+      id: 2,
       auth0_id: 'auth0|456',
       username: 'dimmy',
       name: 'Hayden Milne',
@@ -21,6 +23,7 @@ exports.seed = async function (knex) {
       ability: 'hard',
     },
     {
+      id: 3,
       auth0_id: 'auth0|123',
       username: 'tony',
       name: 'Tobias Read',
