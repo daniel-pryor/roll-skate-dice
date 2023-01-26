@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { getRandomTrick } from '../helper-functions'
 
+import { IfAuthenticated } from './Authenticated'
+
 // set the state of the dice
 // updates the state on the dice based on the values passed up from Trick
 // has a function to update the state
@@ -44,6 +46,11 @@ const Dice = () => {
     return setCurrentTrick(getRandomTrick(currentTricks))
   }
 
+  function handleAddToFavourites() {
+    // get current trick id
+    // add trick to user_tricks db
+  }
+
   return (
     <>
       <div>
@@ -62,6 +69,9 @@ const Dice = () => {
         <div>
           <input type="button" value="Roll Dice" onClick={handleClick} />
         </div>
+        <IfAuthenticated>
+          <button onClick={handleAddToFavourites}>Add to Favourites</button>
+        </IfAuthenticated>
       </div>
     </>
   )

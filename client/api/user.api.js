@@ -7,7 +7,6 @@ export function getUser(token) {
     .get(`${rootUrl}/users/singleuser`)
     .set('Authorization', `Bearer ${token}`)
     .then((res) => {
-      console.log(res.body)
       return res.body
     })
     .catch(logError)
@@ -21,12 +20,11 @@ export function addUser(user, token) {
     .catch(logError)
 }
 
-export function updateUser(currentUsername, user, token) {
-  console.log(currentUsername)
+export function updateUser(user, token) {
   return request
-    .put(`${rootUrl}/users/singleuser`)
+    .patch(`${rootUrl}/users/singleuser`)
     .set('Authorization', `Bearer ${token}`)
-    .send({ currentUsername, user })
+    .send({ user })
     .catch(logError)
 }
 

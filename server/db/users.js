@@ -12,16 +12,10 @@ function getAllUsers(db = connection) {
   return db('users').select()
 }
 
-function userExists(currentUsername, username, db = connection) {
+function userExists(username, db = connection) {
   return db('users')
     .where('username', username)
-    .then((usersFound) => {
-      if (currentUsername == '' && usersFound.length > 0) {
-        return true
-      } else if (currentUsername !== username && usersFound.length > 0) {
-        return true
-      } else return false
-    })
+    .then((usersfound) => usersfound.length > 0)
 }
 
 function getUser(id, db = connection) {

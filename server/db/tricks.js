@@ -1,14 +1,18 @@
 const connection = require('./connection')
 
-module.exports = { getAllTricks }
+module.exports = { getAllTricks, getFavouritesByUserId, addFavouriteByUserId }
 
 function getAllTricks(db = connection) {
   return db('tricks').select()
 }
 
-// function getFavouritesByUserId(id, db = connection) {
-//   return db('users')
-//     .join('users_tricks', 'users.id', 'users_tricks.user_id')
-//     .join('tricks', 'users_tricks.trick_id', 'tricks.id')
-//     .where('users.id', id)
-// }
+function getFavouritesByUserId(id, db = connection) {
+  return db('users')
+    .join('users_tricks', 'users.id', 'users_tricks.user_id')
+    .join('tricks', 'users_tricks.trick_id', 'tricks.id')
+    .where('users.id', id)
+}
+
+function addFavouriteByUserId(newFav, db = connection) {
+  return db('users_tricks').insert(newFav)
+}

@@ -11,10 +11,10 @@ export default function Register({ waitBeforeShow = 500 }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsShown(true)
-    }, 500)
+    }, waitBeforeShow)
 
     return () => clearTimeout(timer)
-  }, [waitBeforeShow])
+  }, [])
 
   return <>{isShown ? <RegisterForm /> : null}</>
 }

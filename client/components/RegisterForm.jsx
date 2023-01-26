@@ -9,7 +9,6 @@ import { Error } from './Styled'
 
 export default function RegisterForm() {
   const user = useSelector((s) => s.loggedInUser)
-  console.log('state:', user)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [form, setForm] = useState({

@@ -21,7 +21,7 @@ export function useCacheUser() {
           dispatch(updateLoggedInUser(userToSave))
         })
         .catch((err) => {
-          console.log('err', err)
+          console.err(err.message)
         })
     } catch (err) {
       console.error(err)

@@ -34,7 +34,6 @@ const App = () => {
       getAccessTokenSilently()
         .then((token) => getUser(token))
         .then((userInDb) => {
-          console.log('userInDb', userInDb)
           userInDb
             ? dispatch(updateLoggedInUser(userInDb))
             : navigate('/register')
